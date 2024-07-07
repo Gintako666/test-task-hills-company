@@ -1,11 +1,11 @@
 # Back
   - pnpm i
-  - Скопируйте содержимое файла `.env.example` в новый файл `.env`.
-  - Добавьте необходимые данные в `.env`.
+  - Copy the contents of the `.env.example` file to a new `.env` file.
+  - Add the required data to `.env`.
   - npm start
 
 # Front
   - pnpm i
-  - Скопируйте содержимое файла `.env.example` в новый файл `.env`.
-  - Добавьте необходимые данные в `.env`.
+  - Copy the contents of the `.env.example` file to a new `.env` file.
+  - Add the required data to `.env`.
   - npm start
