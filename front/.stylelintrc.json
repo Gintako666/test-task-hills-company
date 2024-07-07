@@ -1,0 +1,41 @@
+{
+  "extends": [
+    "stylelint-config-recess-order",
+    "stylelint-config-standard-scss",
+    "stylelint-prettier/recommended"
+  ],
+  "plugins": ["stylelint-selector-bem-pattern", "stylelint-prettier"],
+  "rules": {
+    "block-no-empty": null,
+    "no-empty-source": null,
+    "scss/operator-no-newline-after": null,
+    "selector-class-pattern": null,
+    "plugin/selector-bem-pattern": {
+      "componentName": "[A-Z]+",
+      "componentSelectors": {
+        "initial": "^\\.{componentName}(?:-[a-z]+)?$",
+        "combined": "^\\.combined-{componentName}-[a-z]+$"
+      },
+      "utilitySelectors": "^\\.util-[a-z]+$"
+    },
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": ["composes", "compose-with"]
+      }
+    ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ],
+    "value-no-vendor-prefix": [
+      true,
+      {
+        "ignoreValues": ["box"]
+      }
+    ],
+    "prettier/prettier": true
+  }
+}

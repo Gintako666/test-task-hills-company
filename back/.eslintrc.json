@@ -1,0 +1,132 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "simple-import-sort",
+    "prettier",
+    "spellcheck"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.ts"],
+      "parserOptions": {
+        "project": "./src/**/tsconfig.json",
+        "createDefaultProgram": true
+      },
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "rules": {
+        "@typescript-eslint/no-namespace": "off"
+      }
+    },
+    {
+      "files": ["**/*.ts"],
+      "env": {
+        "node": true,
+        "es2022": true
+      },
+      "extends": ["eslint:recommended"]
+    }
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:n/recommended"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "n/prefer-node-protocol": [
+      "error",
+      {
+        "version": ">=18.0.0"
+      }
+    ],
+    "no-console": "error",
+    "spellcheck/spell-checker": [
+      "error",
+      {
+        "comments": true,
+        "strings": true,
+        "identifiers": true,
+        "lang": "en_US",
+        "skipWords": [],
+        "skipIfMatch": [
+          "https?://[^\\s]*", 
+          "/[A-Za-z0-9/_-]+\\.[A-Za-z]+", 
+          "^[A-Za-z]+$", 
+          "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$",
+          "middleware?s"
+        ],
+        "skipWordIfMatch": [
+          "directus",
+          "PostgreSQL",
+          "hubspot",
+          "accountability",
+          "unlink",
+          "postgresql",
+          "Postgre",
+          "dbname",
+          "setval",
+          "slugify",
+          "webhook"
+        ],
+        "minLength": 5
+      }
+    ],
+    "simple-import-sort/imports": [
+      1,
+      {
+        "groups": [
+          ["^node:"],
+          ["^[a-z]"],
+          ["^@?\\w"],
+          [
+            "^\\.\\.(?!/?$)",
+            "^\\.\\./?$",
+            "^\\./(?=.*/)(?!/?$)",
+            "^\\.(?!/?$)",
+            "^\\./?$"
+          ],
+          ["/middleware", "\\.middleware$"],
+          ["/controllers", "\\.controller$"],
+          ["/models", "\\.model$"],
+          ["/services", "\\.service$"],
+          ["/repositories", "\\.repository$"],
+          ["/routes", "\\.route$"],
+          ["/validators", "\\.validator$"],
+          ["/utils", "\\.util$"],
+          ["/helpers", "\\.helper$"],
+          ["/constants", "\\.const$"],
+          ["/configs", "\\.config$"],
+          ["/errors", "\\.error$"],
+          ["/data", "\\.data$"],
+          ["/enums", "\\.enum$"],
+          ["/interfaces", "\\.interface$"],
+          ["/types"],
+          ["^.*\\/dist\\/.*\\.s?css$"],
+          ["^.+\\.s?css$"]
+        ]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "no-plusplus": "off",
+    "linebreak-style": "off",
+    "import/order": "off",
+    "n/no-process-exit": "off",
+    "n/no-extraneous-import": "off",
+    "n/no-missing-import": "off",
+    "n/no-unsupported-features/node-builtins": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts"]
+      }
+    }
+  }
+}

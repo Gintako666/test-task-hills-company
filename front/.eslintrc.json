@@ -1,0 +1,148 @@
+{
+  "env": {
+    "browser": true,
+    "es2022": true
+  },
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
+    "prettier"
+  ],
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 13,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "simple-import-sort",
+    "prettier",
+    "spellcheck"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "spellcheck/spell-checker": [
+      "error",
+      {
+        "comments": true,
+        "strings": true,
+        "identifiers": true,
+        "lang": "en_US",
+        "skipWords": [
+          "directus",
+          "semibold",
+          "grayscale",
+          "netral",
+          "charset",
+          "scalable",
+          "cyrillic",
+          "whitespace",
+          "nowrap",
+          "Serhiy",
+          "Prytula",
+          "Azov"
+        ],
+        "skipIfMatch": [
+          "https?://[^\\s]*", 
+          "/[A-Za-z0-9/_-]+\\.[A-Za-z]+", 
+          "^[A-Za-z]+$", 
+          "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$",
+          "\\d+vw"
+        ],
+        "skipWordIfMatch": [],
+        "minLength": 5
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "react/require-default-props": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "no-plusplus": "off",
+    "consistent-return": "off",
+    "arrow-body-style": "off",
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": ["arrow-function", "function-declaration"]
+      }
+    ],
+    "jsx-a11y/alt-text": [
+      2,
+      {
+        "elements": ["img", "object", "area", "input[type=\"image\"]"],
+        "img": ["Image"],
+        "object": ["Object"],
+        "area": ["Area"],
+        "input[type=\"image\"]": ["InputImage"]
+      }
+    ],
+    "linebreak-style": "off",
+    /* WARNINGS */
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "react/no-unknown-property": [
+      2,
+      {
+        "ignore": ["jsx", "global"]
+      }
+    ],
+    "simple-import-sort/imports": [
+      1,
+      {
+        "groups": [
+          ["^react$", "^[a-z]", "^clsx$"],
+          [
+            "^~/features/",
+            "^\\.\\.(?!/?$)",
+            "^\\.\\./?$",
+            "^\\./(?=.*/)(?!/?$)",
+            "^\\.(?!/?$)",
+            "^\\./?$"
+          ],
+          ["^~/providers", "\\.provider$"],
+          ["^~/contexts", "\\.context$"],
+          ["^~/stores", "\\.store$"],
+          [
+            "^~/hooks",
+            "^\\.\\./use[A-Z]",
+            "^\\./use[A-Z].*(?=.*/)", 
+            "^\\./use[A-Z]" 
+          ],
+          ["^~/services", "\\.service$"],
+          ["^~/utils", "\\.util$"],
+          ["^~/constants", "\\.const$"],
+          ["^~/configs", "\\.config$"],
+          ["^~/data", "\\.data$"],
+          ["^~/enums", "\\.enum$"],
+          ["^~/interfaces", "\\.interface$"],
+          ["^~/types", "\\.type$"],
+          ["^~/assets"],
+          ["^.*\\/dist\\/.*\\.s?css$"],
+          ["^.+\\.s?css$"]
+        ]
+      }
+    ],
+    "import/order": "off",
+    "no-console": "error"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
+}
